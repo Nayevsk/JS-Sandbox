@@ -1,28 +1,51 @@
-function time() {
-  for (let i = 0; i <= 5; i++) {
-    easyboy(i);
-  }
-}
-
-function easyboy(i){
-  setTimeout(() =>{
-    console.log(i)
+const doSomething = callback => {
+  setTimeout(() => {
+    const skill = "nodeJS"
+    callBack("tooMuchNodeForTheDay", skill)
   },2000)
 }
 
-time()
-
-
-function time2(){var array = [1, 2, 3, 4, 5]
-  for(var i = 0; i < array.length; i++) {
-    delay(i)
-  }
-  function delay(i) {
-    setTimeout(() => {
-      console.log(array[i])
-    }, 1000);
+const callBack = (err, result) => {
+  if (err){
+    return console.log(err)
+  } else {
+    return console.log(result)
   }
 }
 
-  time2()
+doSomething()
 
+// Promise
+const doPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const skills = ['HTML', 'CSS', 'JS']
+    if (skills.length > 0) {
+      resolve(skills)
+    } else {
+      reject('Something wrong has happened')
+    }
+  }, 2000)
+})
+
+doPromise
+  .then(result => {
+    console.log(result)
+  })
+  .catch(error => console.log(error))
+
+  const myPromise = new Promise((resolve,reject) =>{
+    setTimeout(() => {
+      const duties = ["clear house","work", "gym", "shower"];
+      const hobbies = ["soccer","videogames","books"];
+      if (duties > hobbies){
+        resolve(duties)
+      }else{
+        reject(hobbies)
+      }}
+    )    
+  })
+
+  myPromise.then((result) =>{
+    return console.log(result)
+  })
+  .catch(hobbies => console.log(hobbies))
