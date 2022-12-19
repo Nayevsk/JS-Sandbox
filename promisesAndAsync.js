@@ -37,7 +37,7 @@ doPromise
     setTimeout(() => {
       const duties = ["clear house","work", "gym", "shower"];
       const hobbies = ["soccer","videogames","books"];
-      if (duties > hobbies){
+      if (duties.length > hobbies.length){
         resolve(duties)
       }else{
         reject(hobbies)
@@ -49,3 +49,14 @@ doPromise
     return console.log(result)
   })
   .catch(hobbies => console.log(hobbies))
+
+
+ //Using fetch with .then and .catch
+const url =  // countries api
+fetch(url)
+  .then(response => response.json()) // accessing the API data as JSON
+  .then(data => {
+    // getting the data
+    console.log(data)
+  })
+  .catch(error => console.error(error)) // handling error if something wrong happens
